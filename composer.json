@@ -1,0 +1,23 @@
+{
+    "name": "panigale/caerus",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Panigale\\Caerus\\": "src/",
+            "Panigale\\Caerus\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "davy"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^9.6",
+        "mockery/mockery": "^1.6",
+        "orchestra/testbench": "^6.31"
+    },
+    "require": {
+        "guzzlehttp/guzzle": "^7.7"
+    }
+}
