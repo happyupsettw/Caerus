@@ -49,4 +49,14 @@ class Sport extends Askable
 
         return $this;
     }
+
+    public function fetchSportList()
+    {
+        $domain = $this->domain().'/sports';
+        return $this->get($domain ,[
+            'active' => 'true',
+            'gamingType'=> 'agent',
+            'lang' => 'zh_TW'
+        ]);
+    }
 }

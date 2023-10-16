@@ -38,14 +38,14 @@ class Caerus
         return $str;
     }
 
-    public function fetchSport(string $sport = null)
+    public function sports(string $sport = null) : PendingRequest
     {
-        $handler = app()->make(Sport::class);
+        return (new PendingRequest($this->askable))->sports();
+    }
 
-        if($sport)
-            $handler->setSport($sport);
-
-        return $handler->fetch();
+    public function fetchSport(string $sport = null) : PendingRequest
+    {
+        return (new PendingRequest($this->askable))->sports();
     }
 
     public function test()

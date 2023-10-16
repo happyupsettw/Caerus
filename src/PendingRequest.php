@@ -56,6 +56,13 @@ class PendingRequest extends Askable
         return $this;
     }
 
+    public function sports() : PendingRequest
+    {
+        $this->sport = 'all';
+
+        return $this;
+    }
+
     public function league(string $slug): PendingRequest
     {
         $this->league = $slug;
@@ -108,7 +115,7 @@ class PendingRequest extends Askable
      *
      * https://api.airsports.com.tw/games/273090?active=true&gamingType=agent&lang=zh_TW
      *
-     * @return void
+     * @return string
      * @throws \Exception
      */
     private function buildUrl()
@@ -118,23 +125,30 @@ class PendingRequest extends Askable
         if($this->sport && $this->league)
             throw new \Exception('sport and league can not be set at the same time');
 
-        if($this->trending)
-            $url .= '/trending/'.$this->sport;
-        else if($this->sport)
-            $url .= '/sports/'.$this->sport;
+        if($this->sport == 'all'){
+            $url .= '/sports';
+        }else{
+            if($this->trending)
+                $url .= '/trending/'.$this->sport;
+            else if($this->sport)
+                $url .= '/sports/'.$this->sport;
 
-        if($this->league)
-            $url .= '/leagues/'.$this->league;
+            if($this->league)
+                $url .= '/leagues/'.$this->league;
 
-        if($this->gameId)
-            $url .= '/games/'.$this->gameId;
+            if($this->gameId)
+                $url .= '/games/'.$this->gameId;
+        }
 
-        if($this->onlyMainPlay)
-            $url .= '?';
+        if(str_contains($url, '?'))
+            $url.= '&';
+        else
+            $url.= '?';
 
         if($this->onlyMainPlay)
             $url .= 'plays=2,10,12';
 
+        $url.= 'gamingType=agent&lang=zh_TW';
 
         return $url;
     }
