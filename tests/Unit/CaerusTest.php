@@ -151,7 +151,7 @@ class CaerusTest extends TestCase
      */
     public function testFetchTrending(){
         //arrange
-        $url = 'https://api.airsports.com.tw/trending/football?gamingType=agent&lang=zh_TW';
+        $url = env('CAERUS_DOMAIN').'/trending/football?gamingType=agent&lang=zh_TW';
         $caerus = new Caerus($this->mockRequest(
             'get' ,
             json_encode([

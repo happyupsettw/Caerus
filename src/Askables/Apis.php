@@ -11,6 +11,6 @@ trait Apis
 {
     protected function sportUrl()
     {
-        return 'https://api.airsports.com.tw/sports/football?active=true&plays=2,10,12&gamingType=agent&lang=zh_TW';
+        return env('CAERUS_DOMAIN').'/sports/football?active=true&plays=2,10,12&gamingType=agent&lang=zh_TW';
     }
 }
