@@ -8,6 +8,7 @@
 namespace Panigale\Caerus;
 
 use Panigale\Caerus\Askables\Askable;
+use Panigale\Caerus\Askables\Cart;
 
 class PendingRequest extends Askable
 {
@@ -102,6 +103,11 @@ class PendingRequest extends Askable
         $this->trending = true;
 
         return $this;
+    }
+
+    public function findOption($optionId, $handicap)
+    {
+        return $this->askable->find($optionId);
     }
 
     private function fill($caerue)

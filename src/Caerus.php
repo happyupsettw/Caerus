@@ -4,6 +4,7 @@ namespace Panigale\Caerus;
 
 use Illuminate\Support\Traits\Macroable;
 use Panigale\Caerus\Askables\Askable;
+use Panigale\Caerus\Askables\Option;
 use Panigale\Caerus\Askables\Sport;
 
 /**
@@ -103,5 +104,10 @@ class Caerus
     public function onlyMainPlay()
     {
         return (new PendingRequest($this->askable))->onlyMainPlay();
+    }
+
+    public static function findOption($optionId, $handicap = null)
+    {
+        return (new PendingRequest(new Option()))->findOption($optionId, $handicap);
     }
 }
