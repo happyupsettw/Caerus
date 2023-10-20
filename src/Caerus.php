@@ -110,4 +110,9 @@ class Caerus
     {
         return (new PendingRequest(new Option()))->findOption($optionId, $handicap);
     }
+
+    public function findWhereOption(array $options)
+    {
+        return (new PendingRequest(new Option()))->findWhereOption($options);
+    }
 }

@@ -20,4 +20,12 @@ class Option extends Askable
     {
         return $this->send('GET', $this->domain() . '/gamePlayOptions/' . $id);
     }
+
+    public function findWhereOption(array $options)
+    {
+
+        return $this->send('GET', $this->domain() . '/gamePlayOptions', [
+            'id' => $options
+        ]);
+    }
 }
