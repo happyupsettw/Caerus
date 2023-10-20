@@ -110,6 +110,11 @@ class PendingRequest extends Askable
         return $this->askable->find($optionId);
     }
 
+    public function findWhereOption(array $options)
+    {
+        return $this->askable->findWhereOption($options);
+    }
+
     private function fill($caerue)
     {
     }
