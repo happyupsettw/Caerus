@@ -39,4 +39,9 @@ abstract class Askable
     {
         return env('CAERUS_DOMAIN');
     }
+
+    protected function parseJsonRes($res)
+    {
+        return json_decode($res->getBody()->getContents());
+    }
 }

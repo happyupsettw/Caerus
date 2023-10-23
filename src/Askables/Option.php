@@ -18,13 +18,21 @@ class Option extends Askable
      */
     public function find($id)
     {
-        return $this->send('GET', $this->domain() . '/gamePlayOptions/' . $id);
+        return $this->parseJsonRes(
+            $this->send('GET', $this->domain() . '/gamePlayOptions/' . $id)
+        );
     }
 
     public function findWhereOption(array $options)
     {
         $idParams = $this->dotToUrlParams($options);
-        return $this->send('GET', $this->domain() . '/gamePlayOptions'. $idParams);
+        return $this->parseJsonRes(
+            $this->send(
+                'GET',
+                $this->domain() . '
+                    /gamePlayOptions'. $idParams
+            )
+        );
     }
 
     private function dotToUrlParams(array $options)
