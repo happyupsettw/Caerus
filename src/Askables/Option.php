@@ -29,14 +29,17 @@ class Option extends Askable
         return $this->parseJsonRes(
             $this->send(
                 'GET',
-                $this->domain() . '
-                    /gamePlayOptions'. $idParams
+                $this->domain() . '/gamePlayOptions'. $idParams
             )
         );
     }
 
     private function dotToUrlParams(array $options)
     {
+        if(count($options) === 0){
+            return '';
+        }
+
         $str = '?id=';
 
         foreach ($options as $option) {
