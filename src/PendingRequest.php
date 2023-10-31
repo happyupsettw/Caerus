@@ -145,7 +145,7 @@ class PendingRequest extends Askable
                 $url .= '/sports/'.$this->sport;
 
             if($this->league)
-                $url .= '/leagues/'.$this->league;
+                $url .= '/leagues/'.$this->league.'?activeGames=true&sortBy=date';
 
             if($this->gameId)
                 $url .= '/games/'.$this->gameId;
