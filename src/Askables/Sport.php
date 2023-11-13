@@ -29,7 +29,7 @@ class Sport extends Askable
 
     public function fetchSport(string $sport)
     {
-        $domain = $this->domain().'/sports/baseball';
+        $domain = $this->domain().'/sports/'.$sport;
 
         return $this->get($domain, [
             'Accept' => 'application/json',

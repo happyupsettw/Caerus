@@ -41,7 +41,7 @@ class Caerus
 
     public function sports(string $sport = null) : PendingRequest
     {
-        return (new PendingRequest($this->askable))->sports();
+        return (new PendingRequest($this->askable))->sport($sport);
     }
 
     public function fetchSport(string $sport = null) : PendingRequest
