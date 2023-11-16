@@ -4,6 +4,7 @@ namespace Panigale\Caerus;
 
 use Illuminate\Support\Traits\Macroable;
 use Panigale\Caerus\Askables\Askable;
+use Panigale\Caerus\Askables\Game;
 use Panigale\Caerus\Askables\Option;
 use Panigale\Caerus\Askables\Sport;
 
@@ -88,10 +89,6 @@ class Caerus
         return $url;
     }
 
-    public function games()
-    {
-    }
-
     /**
      * @param $id
      * @return PendingRequest
@@ -114,5 +111,10 @@ class Caerus
     public static function findWhereOption(array $options)
     {
         return (new PendingRequest(new Option()))->findWhereOption($options);
+    }
+
+    public function games()
+    {
+        return (new PendingRequest(new Game()));
     }
 }

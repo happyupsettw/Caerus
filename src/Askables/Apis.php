@@ -13,4 +13,12 @@ trait Apis
     {
         return env('CAERUS_DOMAIN').'/sports/football?active=true&plays=2,10,12&gamingType=agent&lang=zh_TW';
     }
+
+    /**
+     * @return bool|mixed|string
+     */
+    protected function domain()
+    {
+        return env('CAERUS_DOMAIN');
+    }
 }

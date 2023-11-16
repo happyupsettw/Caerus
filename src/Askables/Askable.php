@@ -35,13 +35,23 @@ abstract class Askable
         
     }
 
-    public function domain()
-    {
-        return env('CAERUS_DOMAIN');
-    }
-
     protected function parseJsonRes($res)
     {
         return json_decode($res->getBody()->getContents());
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function get(array $options = [])
+    {
+        $url = $this->composeUrl();
+
+        return $this->send('GET', $url, $options);
+    }
+
+    protected function composeUrl() : string
+    {
+        return $this->domain();
     }
 }

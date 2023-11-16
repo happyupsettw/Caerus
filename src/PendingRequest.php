@@ -7,11 +7,14 @@
 
 namespace Panigale\Caerus;
 
+use Panigale\Caerus\Askables\Apis;
 use Panigale\Caerus\Askables\Askable;
 use Panigale\Caerus\Askables\Cart;
 
-class PendingRequest extends Askable
+class PendingRequest
 {
+    use Apis;
+
     /**
      * @var string
      */
