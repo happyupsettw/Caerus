@@ -115,6 +115,6 @@ class Caerus
 
     public function games()
     {
-        return (new PendingRequest(new Game()));
+        return (new PendingRequest(new Game()))->games();
     }
 }

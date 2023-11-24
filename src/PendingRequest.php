@@ -183,4 +183,8 @@ class PendingRequest
         return $this->buildUrl();
     }
 
+    public function games()
+    {
+        return $this->askable;
+    }
 }
